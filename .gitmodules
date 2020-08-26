@@ -19,3 +19,6 @@
 [submodule "src/broot"]
 	path = src/broot
 	url = https://github.com/canop/broot
+[submodule "src/vivid"]
+	path = src/vivid
+	url = https://github.com/sharkdp/vivid
