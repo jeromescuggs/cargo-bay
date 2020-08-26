@@ -1,0 +1,21 @@
+[submodule "src/bat"]
+	path = src/bat
+	url = https://github.com/sharkdp/bat
+[submodule "src/exa"]
+	path = src/exa
+	url = https://github.com/ogham/exa
+[submodule "src/starship"]
+	path = src/starship
+	url = https://github.com/starship/starship
+[submodule "src/fd"]
+	path = src/fd
+	url = https://github.com/sharkdp/fd
+[submodule "src/pastel"]
+	path = src/pastel
+	url = https://github.com/sharkdp/pastel
+[submodule "src/ytop"]
+	path = src/ytop
+	url = https://github.com/cjbassi/ytop
+[submodule "src/broot"]
+	path = src/broot
+	url = https://github.com/canop/broot
