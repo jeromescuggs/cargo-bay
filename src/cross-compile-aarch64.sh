@@ -10,11 +10,24 @@ git submodule foreach git pull origin master
 sleep 1s
 echo "checking for required crate: Cross 0.1.16"
 sleep 1s
-if [[ -a $HOME/.cargo/bin/cross ]]; then
-    cargo install --force --version 0.1.16 cross
+
+if [[ -x "$(command -v cross)" ]]; then
+        CROSS_VER=$(cross --version | sed -n '1 p')
 else
-    cargo install --version 0.1.16 cross
-fi 
+    echo "Cross v 0.1.16 required, installing now..."
+        sleep 1
+        cargo install --version 0.1.16 cross
+fi
+
+if [[ -x "$(command -v cross)" ]] && [[ $CROSS_VER == "cross 0.1.16" ]];then
+        echo "found cross 0.1.16, continuing..."
+        sleep 1s
+else
+        echo "it appears an incorrect version of Cross is installed."
+        sleep 1
+        echo "Installing required version..."
+        cargo install --force --version 0.1.16 cross
+fi
 
 echo "checking for Docker..."
 sleep 1s
