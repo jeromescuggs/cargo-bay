@@ -9,7 +9,17 @@ from the `cargo-bay` directory root:
 - to pull fresh images and compile them for native environment: `cd src && ./build-all.sh`
 - to install the finished programs from above into `$HOME/.cargo/bin`: `cd src && ./install-bins.sh`
 
-for cross-compiling, cargo-bay uses the `cross` crate, which uses Docker to build rust crates for other architectures by pulling and building a Docker environment for compiling. 
+for cross-compiling, cargo-bay uses the `cross` crate, which uses Docker to build rust crates for other architectures. 
+
+make sure Docker is installed, and the user is given permissions: 
+
+```
+sudo apt update
+sudo apt install docker-compose docker.io
+sudo usermod -aG docker $(who am i| cut -d' ' -f1)
+```
+
+since you are going to be changing user permissions you will want to logout and log back in to refresh them. you will then be able to run docker without relying on root. 
 
 unfortunately, `cross` will fail when trying to compile any crate that requires then OpenSSL libraries. my solution is that the scripts to cross-compile will use the version 0.1.16 binary, which does include the necessary libraries. this should have zero effect on anything, but it's worth mentioning if you do wind up troubleshooting for some reason. 
 
