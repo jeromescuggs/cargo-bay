@@ -1,0 +1,2 @@
+[target.aarch64-unknown-linux-gnu]
+image = "arm64-ssl:aarch64-unknown-linux-gnu-0.2.1"
