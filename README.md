@@ -22,6 +22,8 @@ a project to package common, useful applications written in Rust for quick deplo
 [vivid]: https://github.com/sharkdp/vivid
 [ytop]: https://github.com/cjbassi/ytop
 
+however, the build script simply enters every subfolder in the `src` directory, so if you want to add or remove from this list, it's as simple as navigating to `cargo-bay/src` and either fetching other crates with git or removing any project folder you don't need. 
+
 ## usage
 
 from the `cargo-bay` directory root: 
