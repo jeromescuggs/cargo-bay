@@ -29,13 +29,15 @@ for i in $(find . -mindepth 1 -maxdepth 1 -type d); do
 #    git pull;
 done
 
-if [[ -d $CUR_DIR/vivid ]] && [[ -z $HOME/.config/vivid ]]; then
+if [[ -d "$CUR_DIR/vivid" ]] && [[ ! -d "$HOME/.config/vivid" ]]; then
     echo "Vivid requires a filetypes config file, and themes."
     sleep 1s
     echo "Pulling config files from Vivid crate and installing in default user config folder..."
 	mkdir -p $HOME/.config/vivid
-	cp $CUR_DIR/vivid/config/filetypes.yaml $HOME/.config/vivid
+	cp $CUR_DIR/vivid/config/filetypes.yml $HOME/.config/vivid
 	cp -r $CUR_DIR/vivid/themes $HOME/.config/vivid
-fi 
-
+fi
+sleep 1s
+echo "config files for vivid installed. to use, add the following to your profile rc:"
+echo "LS_COLORS=\$(vivid generate snazzy)"
 echo "Complete!"
