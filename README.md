@@ -2,6 +2,26 @@
 
 a project to package common, useful applications written in Rust for quick deployment on a fresh install. the original repository has been de-hyphenated and is at [jeromescuggs/cargobay]
 
+## current packages:
+
+- [bat], like `cat` but with syntax highlighting
+- [broot], a highly tweakable file explorer with vim-like extensibility
+- [exa], `ls` with more options, colors, and even icons!
+- [fd], a no-nonsense way to search for files. 
+- [pastel], useful utility for developers who play with colors. display, mix, compare colors in the terminal. 
+- [starship], a futuristic, customizable, and fast shell prompt. 
+- [vivid], a tool to enhance `LS_COLORS`, `.dircolors` etc. Themeable. 
+- [ytop], the Rust re-write of [gotop](https://github.com/cjbassi/gotop), a prettier `htop`-inspired process viewer. 
+
+[bat]: https://github.com/sharkdp/bat
+[broot]: https://github.com/Canop/broot
+[exa]: https://github.com/sharkdp/exa
+[fd]: https://github.com/sharkdp/fd
+[pastel]: https://github.com/sharkdp/pastel
+[starship]: https://github.com/starship/starship
+[vivid]: https://github.com/sharkdp/vivid
+[ytop]: https://github.com/cjbassi/ytop
+
 ## usage
 
 from the `cargo-bay` directory root: 
