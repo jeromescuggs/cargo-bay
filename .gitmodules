@@ -22,3 +22,6 @@
 [submodule "src/vivid"]
 	path = src/vivid
 	url = https://github.com/sharkdp/vivid
+[submodule "src/cross"]
+	path = src/cross
+	url = https://github.com/rust-embedded/cross

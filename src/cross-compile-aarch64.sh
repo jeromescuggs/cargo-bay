@@ -6,7 +6,7 @@ CUR_DIR=$(dirname $(readlink -f $0))
 # Let the person running the script know what's going on.
 echo "Pulling in latest changes for all repositories..."
 sleep 1
-git submodule update --init
+git submodule foreach git pull origin master
 
 # Find all git repositories and update it to the master latest revision
 for i in $(find . -mindepth 1 -maxdepth 1 -type d); do
