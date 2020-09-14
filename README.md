@@ -12,6 +12,7 @@ a project to package common, useful applications written in Rust for quick deplo
 - [starship], a futuristic, customizable, and fast shell prompt. 
 - [vivid], a tool to enhance `LS_COLORS`, `.dircolors` etc. Themeable. 
 - [ytop], the Rust re-write of [gotop](https://github.com/cjbassi/gotop), a prettier `htop`-inspired process viewer. 
+- [bottom], the successor to `ytop`.
 
 [bat]: https://github.com/sharkdp/bat
 [broot]: https://github.com/Canop/broot
@@ -21,6 +22,7 @@ a project to package common, useful applications written in Rust for quick deplo
 [starship]: https://github.com/starship/starship
 [vivid]: https://github.com/sharkdp/vivid
 [ytop]: https://github.com/cjbassi/ytop
+[bottom]: https://github.com/ClementTsang/bottom
 
 however, the build script simply enters every subfolder in the `src` directory, so if you want to add or remove from this list, it's as simple as navigating to `cargo-bay/src` and either fetching other crates with git or removing any project folder you don't need. 
 
