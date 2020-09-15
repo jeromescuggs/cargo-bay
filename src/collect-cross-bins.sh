@@ -20,6 +20,13 @@ for i in $(find . -mindepth 1 -maxdepth 1 -type d); do
     cd ..;
 done
 
+echo "manually moving exceptions..."
+sleep 1
+if [[ -d ./bottom ]]; then
+    echo "moving bottom to bin/aarch64/btm"
+    cp $CUR_DIR/bottom/target/aarch64-unknown-linux-gnu/release/btm ../bin/aarch64
+fi 
+
 echo "Complete!"
 sleep 1s
 echo "The binaries have been copied to the 'bin' directory in the root folder."
