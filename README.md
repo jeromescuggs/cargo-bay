@@ -45,11 +45,42 @@ sudo usermod -aG docker $(who am i| cut -d' ' -f1)
 
 since you are going to be changing user permissions you will want to logout and log back in to refresh them. you will then be able to run docker without relying on root. 
 
+### advantages of cargo-bay
+
+#### avoids breaking when compiling crates that require openssl headers
+
 unfortunately, `cross` will fail when trying to compile any crate that requires then OpenSSL libraries. my solution is that the scripts to cross-compile will use the version 0.1.16 binary, which does include the necessary libraries. this should have zero effect on anything, but it's worth mentioning if you do wind up troubleshooting for some reason. 
 
 - to cross-compile for arm64 devices: `cd src && ./cross-compile-aarch64.sh`
 
 the script above is set up to run `cross build --release --target aarch64-unknown-linux-gnu`. for other architectures, edit this command in the above script, changing the `--target` to your desired toolchain.
+
+#### compiling for the raspberry pi 0/W
+
+the raspberry pi zero unfortunately uses an arm6l cpu, and newer versions of the standard gcc libraries are not compiled to include support for this architecture. this means trying to compile binaries for the pi zero is incredibly annoying... unless you use cargo-bay!!
+
+~~~ sh 
+RPI0_IMG=$(docker images | grep jerome | sed 's/\s.*$//')
+
+if [[ $RPI0_IMG != "jerome/cross" ]]; then
+sleep 1s
+echo "to compile for raspberry pi zero, a custom Docker image needs to be built."
+sleep 1s
+echo "Building new image from Dockerfile..."
+docker build -t jerome/cross:rpi-0 .
+fi
+
+for i in $(find . -mindepth 1 -maxdepth 1 -type d); do
+    # We have to go to the .git parent directory to call the pull command
+    cd "$i"
+        cargo clean
+cat > Cross.toml <<- "EOF"
+[target.arm-unknown-linux-gnueabihf]
+image = "jerome/cross:rpi-0"
+EOF
+    cd ..;
+done
+~~~
 
 ### use-case
 
