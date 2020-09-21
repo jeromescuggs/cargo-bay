@@ -79,4 +79,4 @@ done
 
 echo "Complete!"
 sleep 1s
-echo "run collect-cross-bins.sh to sweep all completed binaries into the 'bin' folder in the cargo-bay root directory."
+echo "run collect-armhf.sh to sweep all completed binaries into the 'bin' folder in the cargo-bay root directory."
