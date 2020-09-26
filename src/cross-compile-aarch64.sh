@@ -13,11 +13,19 @@ sleep 1s
 
 if [[ -x "$(command -v cross)" ]]; then
         CROSS_VER=$(cross --version | sed -n '1 p')
+        echo "Found 'Cross' crate, checking version..."
+        sleep 1s
 else
-    echo "Cross v 0.1.16 required, installing now..."
-        sleep 1
-        cargo install --version 0.1.16 cross
-fi
+    echo "Cross-compiling requires the Cross cargo crate, v0.1.16. To install, run:"
+    echo "cargo install cross --version 0.1.16"
+    sleep 1s
+    exit
+fi 
+
+#    echo "Cross v 0.1.16 required, installing now..."
+#        sleep 1
+#        cargo install --version 0.1.16 cross
+# fi
 
 if [[ -x "$(command -v cross)" ]] && [[ $CROSS_VER == "cross 0.1.16" ]];then
         echo "found cross 0.1.16, continuing..."
