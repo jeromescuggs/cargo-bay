@@ -16,7 +16,7 @@ for i in $(find . -mindepth 1 -maxdepth 1 -type d); do
     # We have to go to the .git parent directory to call the pull command
 	cd "$i" 
 	echo "collecting ${PWD##*/}" 
-	cp target/aarch64-unknown-linux-gnu/release/${PWD##*/} ../../bin/aarch64
+	cp target/release/${PWD##*/} ../../bin/x86_64
     cd ..;
 done
 
@@ -24,7 +24,7 @@ echo "manually moving exceptions..."
 sleep 1
 if [[ -d ./bottom ]]; then
     echo "moving bottom to bin/aarch64/btm"
-    cp $CUR_DIR/bottom/target/aarch64-unknown-linux-gnu/release/btm ../bin/aarch64
+    cp $CUR_DIR/bottom/target/aarch64-unknown-linux-gnu/release/btm ../bin/x86_64
 fi 
 
 echo "Complete!"
