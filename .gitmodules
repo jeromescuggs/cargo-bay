@@ -28,3 +28,12 @@
 [submodule "src/bottom"]
 	path = src/bottom
 	url = https://github.com/ClementTsang/bottom
+[submodule "bin/cb-aarch64"]
+	path = bin/cb-aarch64
+	url = https://github.com/jeromescuggs/cb-aarch64
+[submodule "bin/cb-x86_64"]
+	path = bin/cb-x86_64
+	url = https://github.com/jeromescuggs/cb-x86_64
+[submodule "bin/cb-armv7hf"]
+	path = bin/cb-armv7hf
+	url = https://github.com/jeromescuggs/cb-armv7hf
